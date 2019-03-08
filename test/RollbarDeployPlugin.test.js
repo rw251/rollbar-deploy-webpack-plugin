@@ -1,9 +1,9 @@
 import expect, { isSpy, spyOn, createSpy } from 'expect';
 import nock from 'nock';
-import RollbarSourceMapPlugin from '../src/RollbarSourceMapPlugin';
+import RollbarDeployPlugin from '../src/RollbarDeployPlugin';
 import { ROLLBAR_ENDPOINT } from '../src/constants';
 
-describe('RollbarSourceMapPlugin', function() {
+describe('RollbarDeployPlugin', function() {
   beforeEach(function() {
     this.compiler = {
       options: {},
@@ -31,12 +31,12 @@ describe('RollbarSourceMapPlugin', function() {
       publicPath: 'https://my.cdn.net/assets'
     };
 
-    this.plugin = new RollbarSourceMapPlugin(this.options);
+    this.plugin = new RollbarDeployPlugin(this.options);
   });
 
   describe('constructor', function() {
     it('should return an instance', function() {
-      expect(this.plugin).toBeA(RollbarSourceMapPlugin);
+      expect(this.plugin).toBeA(RollbarDeployPlugin);
     });
 
     it('should set options', function() {
@@ -44,7 +44,7 @@ describe('RollbarSourceMapPlugin', function() {
         includeChunks: ['foo', 'bar'],
         silent: true
       });
-      const plugin = new RollbarSourceMapPlugin(options);
+      const plugin = new RollbarDeployPlugin(options);
       expect(plugin).toInclude(options);
     });
 
@@ -58,7 +58,7 @@ describe('RollbarSourceMapPlugin', function() {
 
     it('should accept string value for includeChunks', function() {
       const options = Object.assign({}, this.options, { includeChunks: 'foo' });
-      const plugin = new RollbarSourceMapPlugin(options);
+      const plugin = new RollbarDeployPlugin(options);
       expect(plugin).toInclude({ includeChunks: ['foo'] });
     });
 
@@ -66,7 +66,7 @@ describe('RollbarSourceMapPlugin', function() {
       const options = Object.assign({}, this.options, {
         includeChunks: ['foo', 'bar']
       });
-      const plugin = new RollbarSourceMapPlugin(options);
+      const plugin = new RollbarDeployPlugin(options);
       expect(plugin).toInclude({ includeChunks: ['foo', 'bar'] });
     });
 
@@ -77,7 +77,7 @@ describe('RollbarSourceMapPlugin', function() {
     it('should access string value for rollbarEndpoint', function() {
       const customEndpoint = 'https://api.rollbar.custom.com/api/1/sourcemap';
       const options = Object.assign({}, this.options, { rollbarEndpoint: customEndpoint });
-      const plugin = new RollbarSourceMapPlugin(options);
+      const plugin = new RollbarDeployPlugin(options);
       expect(plugin).toInclude({ rollbarEndpoint: customEndpoint });
     });
   });
@@ -187,7 +187,7 @@ describe('RollbarSourceMapPlugin', function() {
         warnings: []
       };
 
-      this.plugin = new RollbarSourceMapPlugin({
+      this.plugin = new RollbarDeployPlugin({
         version: 'master-latest-sha',
         publicPath: 'https://my.cdn.net/assets'
       });
@@ -210,14 +210,14 @@ describe('RollbarSourceMapPlugin', function() {
     });
 
     it('should return \'publicPath\' value if it\'s a string', function() {
-      const plugin = new RollbarSourceMapPlugin(this.options);
+      const plugin = new RollbarDeployPlugin(this.options);
       const result = plugin.getPublicPath(this.sourceFile);
       expect(result).toBe('https://my.cdn.net/assets/vendor.5190.js');
     });
 
     it('should return whatever is returned by publicPath argument when it\'s a function', function () {
       const options = Object.assign({}, this.options, { publicPath: sourceFile => `https://my.function.proxy.cdn/assets/${sourceFile}` });
-      const plugin = new RollbarSourceMapPlugin(options);
+      const plugin = new RollbarDeployPlugin(options);
       const result = plugin.getPublicPath(this.sourceFile);
       expect(result).toBe('https://my.function.proxy.cdn/assets/vendor.5190.js');
     });

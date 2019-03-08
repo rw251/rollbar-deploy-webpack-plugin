@@ -5,7 +5,7 @@ import { ROLLBAR_REQ_FIELDS } from './constants';
 
 // Take a single Error or array of Errors and return an array of errors that
 // have message prefixed.
-export function handleError(err, prefix = 'RollbarSourceMapPlugin') {
+export function handleError(err, prefix = 'RollbarDeployPlugin') {
   if (!err) {
     return [];
   }
@@ -18,15 +18,6 @@ export function handleError(err, prefix = 'RollbarSourceMapPlugin') {
 // are no errors.
 export function validateOptions(ref) {
   const errors = ROLLBAR_REQ_FIELDS.reduce((result, field) => {
-    if (field === 'publicPath'
-        && ref && ref[field]
-        && !isString(ref[field])
-        && !isFunction(ref[field])) {
-      return [
-        ...result,
-        new TypeError(`invalid type. '${field}' expected to be string or function.`)
-      ];
-    }
 
     if (ref && ref[field]) {
       return result;

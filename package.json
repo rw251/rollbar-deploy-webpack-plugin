@@ -1,8 +1,8 @@
 {
-  "name": "rollbar-sourcemap-webpack-plugin",
-  "version": "2.5.0",
-  "description": "A Webpack plugin to upload sourcemaps to Rollbar after build",
-  "main": "./dist/RollbarSourceMapPlugin.js",
+  "name": "rollbar-deploy-webpack-plugin",
+  "version": "0.0.1",
+  "description": "A Webpack plugin to upload deploys to Rollbar after build",
+  "main": "./dist/RollbarDeployPlugin.js",
   "scripts": {
     "clean": "rimraf dist && rimraf coverage.lcov",
     "lint": "./node_modules/.bin/eslint ./src --ext .js",
@@ -22,22 +22,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thredup/rollbar-sourcemap-webpack-plugin.git"
+    "url": "https://github.com/rw251/rollbar-deploy-webpack-plugin.git"
   },
   "keywords": [
     "webpack",
     "plugin",
     "rollbar",
-    "source map",
-    "sourcemap",
-    "sourcemaps",
+    "deploy",
+    "deploys",
+    "deployment",
     "production"
   ],
-  "author": "Brandon Doran <bdoran@gmail.com>",
+  "author": "Richard Williams <1234richardwilliams@gmail.com  >",
   "bugs": {
-    "url": "https://github.com/thredup/rollbar-sourcemap-webpack-plugin/issues"
+    "url": "https://github.com/rw251/rollbar-deploy-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/thredup/rollbar-sourcemap-webpack-plugin#readme",
+  "homepage": "https://github.com/rw251/rollbar-deploy-webpack-plugin#readme",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",

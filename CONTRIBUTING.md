@@ -8,10 +8,10 @@ First fork the repo to your own github org, then do the following steps to get s
 
 ```bash
 # clone your fork to your local machine
-git clone https://github.com/YOUR_USER_OR_ORG/rollbar-sourcemap-webpack-plugin.git
+git clone https://github.com/YOUR_USER_OR_ORG/rollbar-deploy-webpack-plugin.git
 
 # change to local repo directory
-cd rollbar-sourcemap-webpack-plugin
+cd rollbar-deploy-webpack-plugin
 
 # install dependencies
 npm install

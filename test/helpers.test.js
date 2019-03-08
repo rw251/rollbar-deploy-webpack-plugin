@@ -34,11 +34,11 @@ describe('helpers', function() {
       expect(result[0]).toInclude({ message: 'Plugin: required field missing' });
     });
 
-    it('should default prefix to "RollbarSourceMapPlugin"', function() {
+    it('should default prefix to "RollbarDeployPlugin"', function() {
       const result = helpers.handleError(new Error('required field missing'));
       expect(result.length).toEqual(1);
       expect(result[0]).toInclude({
-        message: 'RollbarSourceMapPlugin: required field missing'
+        message: 'RollbarDeployPlugin: required field missing'
       });
     });
 

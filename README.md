@@ -1,4 +1,4 @@
-RollbarSourceMapPlugin
+RollbarDeployPlugin
 ========================
 [![Dependency Status](https://img.shields.io/david/thredup/rollbar-sourcemap-webpack-plugin.svg?style=flat-square)](https://david-dm.org/thredup/rollbar-sourcemap-webpack-plugin)
 [![devDependency Status](https://img.shields.io/david/dev/thredup/rollbar-sourcemap-webpack-plugin.svg?maxAge=2592000?style=flat-square)](https://david-dm.org/thredup/rollbar-sourcemap-webpack-plugin#info=devDependencies)
@@ -13,7 +13,7 @@ Production JavaScript bundles are typically minified before deploying,
 making Rollbar stacktraces pretty useless unless you take steps to upload the sourcemaps.
 You may be doing this now in a shell script, triggered during your deploy process,
 that makes curl posts to the Rollbar API. This can be finicky and error prone to setup.
-RollbarSourceMapPlugin aims to remove that burden and automatically upload the sourcemaps when they are emitted by webpack.
+RollbarDeployPlugin aims to remove that burden and automatically upload the sourcemaps when they are emitted by webpack.
 
 ## Installation
 Install the plugin with npm:
@@ -24,7 +24,7 @@ $ npm install rollbar-sourcemap-webpack-plugin --save-dev
 ## Basic Usage
 An example webpack.config.js:
 ```javascript
-const RollbarSourceMapPlugin = require('rollbar-sourcemap-webpack-plugin')
+const RollbarDeployPlugin = require('rollbar-sourcemap-webpack-plugin')
 const PUBLIC_PATH = 'https://my.cdn.net/assets'
 const webpackConfig = {
   entry: 'index',
@@ -33,7 +33,7 @@ const webpackConfig = {
     path: 'dist',
     filename: 'index-[hash].js'
   },
-  plugins: [new RollbarSourceMapPlugin({
+  plugins: [new RollbarDeployPlugin({
     accessToken: 'aaaabbbbccccddddeeeeffff00001111',
     version: 'version_string_here',
     publicPath: PUBLIC_PATH
@@ -42,7 +42,7 @@ const webpackConfig = {
 ```
 
 ## Plugin Configuration
-You can pass a hash of configuration options to `RollbarSourceMapPlugin`.
+You can pass a hash of configuration options to `RollbarDeployPlugin`.
 Allowed values are as follows:
 
 #### `accessToken: string` **(required)**
