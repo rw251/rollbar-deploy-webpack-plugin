@@ -1,6 +1,6 @@
 {
   "name": "rollbar-deploy-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Webpack plugin to upload deploys to Rollbar after build",
   "main": "./dist/RollbarDeployPlugin.js",
   "scripts": {
