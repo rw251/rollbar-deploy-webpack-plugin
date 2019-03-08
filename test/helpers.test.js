@@ -57,8 +57,8 @@ describe('helpers', function() {
     it('should return null if all required options are supplied', function() {
       const options = {
         accessToken: 'aaabbbccc000111',
-        version: 'latest',
-        publicPath: 'https://my.cdn.net/assets'
+        revision: 'latest',
+        environment: 'production',
       };
       const result = helpers.validateOptions(options);
       expect(result).toBe(null); // eslint-disable-line no-unused-expressions
@@ -66,8 +66,9 @@ describe('helpers', function() {
 
     it('should return an error if accessToken is not supplied', function() {
       const options = {
-        version: 'latest',
-        publicPath: 'https://my.cdn.net/assets'
+        revision: 'latest',
+        localUsername: 'richard',
+        environment: 'production',
       };
       const result = helpers.validateOptions(options);
       expect(result).toBeA('array');
@@ -76,28 +77,28 @@ describe('helpers', function() {
         .toInclude({ message: 'required field, \'accessToken\', is missing.' });
     });
 
-    it('should return an error if version is not supplied', function() {
-      const options = {
+    it('should return an error if environment is not supplied', function() {
+      const options = {        
         accessToken: 'aaabbbccc000111',
-        publicPath: 'https://my.cdn.net/assets'
+        revision: 'latest',
       };
       const result = helpers.validateOptions(options);
       expect(result).toBeA(Array);
       expect(result.length).toBe(1);
       expect(result[0]).toBeA(Error)
-        .toInclude({ message: 'required field, \'version\', is missing.' });
+        .toInclude({ message: 'required field, \'environment\', is missing.' });
     });
 
-    it('should return an error if publicPath is not supplied', function() {
+    it('should return an error if revision is not supplied', function() {
       const options = {
         accessToken: 'aaabbbccc000111',
-        version: 'latest'
+        environment: 'production',
       };
       const result = helpers.validateOptions(options);
       expect(result).toBeA(Array);
       expect(result.length).toBe(1);
       expect(result[0]).toBeA(Error)
-        .toInclude({ message: 'required field, \'publicPath\', is missing.' });
+        .toInclude({ message: 'required field, \'revision\', is missing.' });
     });
 
     it('should handle multiple missing required options', function() {
@@ -119,27 +120,5 @@ describe('helpers', function() {
       expect(result.length).toBe(ROLLBAR_REQ_FIELDS.length);
     });
 
-    it('should return an error if publicPath is not a string nor a function', function () {
-      const options = {
-        accessToken: 'aaabbbccc000111',
-        version: 'latest',
-        publicPath: 3
-      };
-      const result = helpers.validateOptions(options);
-      expect(result).toBeA(Array);
-      expect(result.length).toBe(1);
-      expect(result[0]).toBeA(TypeError)
-        .toInclude({ message: 'invalid type. \'publicPath\' expected to be string or function.' });
-    });
-
-    it('should return null if all required arguments are provided and accept a function as the publicPath argument', function () {
-      const options = {
-        accessToken: 'aaabbbccc000111',
-        version: 'latest',
-        publicPath: () => {}
-      };
-      const result = helpers.validateOptions(options);
-      expect(result).toBe(null);
-    });
   });
 });

@@ -72,13 +72,7 @@ with them.
 ## Publishing to NPM (For maintainers with the publish bit)
 
 Publishing to NPM is automated with npm scripts, which runs linting, tests, transpiles the source,
-generates a changelog, and runs npm publish.
-
-To generate the changelog you will need to install [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator).
-
-```bash
-gem install github_changelog_generator
-```
+and runs npm publish.
 
 We use [SEMVER](http://semver.org/) versioning scheme: MAJOR.MINOR.PATCH
 
