@@ -13,7 +13,7 @@
     "test:watch": "npm test -- -w",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "preversion": "npm run -s lint && npm run -s test && npm run -s build",
-    "version": "npm run version:amend && git push origin master --tags && npm publish",
+    "postversion": "npm run version:amend && git push origin master --tags && npm publish",
     "version:amend": "git commit --amend -m \"Release v${npm_package_version}\""
   },
   "repository": {
