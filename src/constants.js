@@ -4,5 +4,4 @@ export const ROLLBAR_REQ_FIELDS = [
   'accessToken',
   'environment',
   'revision',
-  'localUsername'
 ];

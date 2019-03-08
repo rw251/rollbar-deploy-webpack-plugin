@@ -1,9 +1,5 @@
-import async from 'async';
 import request from 'request';
 import VError from 'verror';
-import find from 'lodash.find';
-import reduce from 'lodash.reduce';
-import isString from 'lodash.isstring';
 import { handleError, validateOptions } from './helpers';
 import { ROLLBAR_ENDPOINT } from './constants';
 
@@ -12,7 +8,7 @@ class RollbarDeployPlugin {
     accessToken,
     environment,
     revision,
-    localUsername,
+    localUsername = 'unknown',
     silent = false,
     ignoreErrors = false,
     rollbarEndpoint = ROLLBAR_ENDPOINT
@@ -58,12 +54,12 @@ class RollbarDeployPlugin {
     const req = request.post(this.rollbarEndpoint, (err, res, body) => {
       if (!err && res.statusCode === 200) {
         if (!this.silent) {
-          console.info(`Deployment logged to Rollbar`); // eslint-disable-line no-console
+          console.info('Deployment logged to Rollbar'); // eslint-disable-line no-console
         }
         return cb();
       }
 
-      const errMessage = `failed to log deployment to Rollbar`;
+      const errMessage = 'failed to log deployment to Rollbar';
       if (err) {
         return cb(new VError(err, errMessage));
       }
