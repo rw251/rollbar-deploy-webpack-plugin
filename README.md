@@ -1,9 +1,9 @@
 RollbarDeployPlugin
 ========================
-[![Dependency Status](https://img.shields.io/david/thredup/rollbar-deploy-webpack-plugin.svg?style=flat-square)](https://david-dm.org/thredup/rollbar-deploy-webpack-plugin)
-[![devDependency Status](https://img.shields.io/david/dev/thredup/rollbar-deploy-webpack-plugin.svg?maxAge=2592000?style=flat-square)](https://david-dm.org/thredup/rollbar-deploy-webpack-plugin#info=devDependencies)
-[![Build Status](https://img.shields.io/travis/thredup/rollbar-deploy-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/thredup/rollbar-deploy-webpack-plugin)
-[![Coverage](https://img.shields.io/codecov/c/github/thredup/rollbar-deploy-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/thredup/rollbar-deploy-webpack-plugin)
+[![Dependency Status](https://img.shields.io/david/rw251/rollbar-deploy-webpack-plugin.svg?style=flat-square)](https://david-dm.org/rw251/rollbar-deploy-webpack-plugin)
+[![devDependency Status](https://img.shields.io/david/dev/rw251/rollbar-deploy-webpack-plugin.svg?maxAge=2592000?style=flat-square)](https://david-dm.org/rw251/rollbar-deploy-webpack-plugin#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/rw251/rollbar-deploy-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/rw251/rollbar-deploy-webpack-plugin)
+[![Coverage](https://img.shields.io/codecov/c/github/rw251/rollbar-deploy-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/rw251/rollbar-deploy-webpack-plugin)
 [![Downloads](https://img.shields.io/npm/dm/rollbar-deploy-webpack-plugin.svg?style=flat-square)](https://www.npmjs.com/package/rollbar-deploy-webpack-plugin)
 
 This is a [Webpack](https://webpack.github.io) plugin that simplifies the process of notifiying [Rollbar](https://rollbar.com) of a deployment.
